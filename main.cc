@@ -32,7 +32,7 @@ int main() {
  
  // TODO: Display the total hours worked over 0.5 
  std::cout << "Team's total hours worked over 0.5 hours: ";
- std::cout << doina->TeamHoursWorkedOver(0.5) << "\n";
+ std::cout << doina->TeamAggregateHoursOver(0.5) << "\n";
   
  return 0;
 }

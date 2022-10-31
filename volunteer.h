@@ -41,7 +41,7 @@ public:
        return hours_worked_;
       }
       else {
-        return next_volunteer_->TemMostHours());
+        return next_volunteer_->TeamMostHours();
       }
     }
   }
@@ -51,13 +51,14 @@ public:
     if (next_volunteer_ == nullptr) {
       if (hours_worked_ > minimum) {
         return hours_worked_;
-      else {
+      } else {
         return 0;
        }
     } else {
       if (hours_worked_ > minimum) {
         return hours_worked_ + 
                next_volunteer_->TeamAggregateHoursOver(minimum);
+      }
       else {
         return next_volunteer_->TeamAggregateHoursOver(minimum);
        }
