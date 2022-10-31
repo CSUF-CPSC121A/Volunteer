@@ -33,8 +33,37 @@ public:
   }
 
   // TODO: Create the TeamMostHours member function
+  double TeamMostHours() {
+    if (next_volunteer_ == nullptr) {
+      return hours_worked_;
+    } else {
+      if (hours_worked_ > next_volunteer_->TeamMostHours()) {
+       return hours_worked_;
+      }
+      else {
+        return next_volunteer_->TemMostHours());
+      }
+    }
+  }
 
   // TODO: Create the TeamAggregateHoursOver member function
+  double TeamAggregateHoursOver(double minimum) {
+    if (next_volunteer_ == nullptr) {
+      if (hours_worked_ > minimum) {
+        return hours_worked_;
+      else {
+        return 0;
+       }
+    } else {
+      if (hours_worked_ > minimum) {
+        return hours_worked_ + 
+               next_volunteer_->TeamAggregateHoursOver(minimum);
+      else {
+        return next_volunteer_->TeamAggregateHoursOver(minimum);
+       }
+    }
+  }
+
 
 private:
   std::shared_ptr<Volunteer> next_volunteer_;
